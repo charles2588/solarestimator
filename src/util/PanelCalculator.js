@@ -1,6 +1,6 @@
 import {transformer} from './Battery';
 const getEstimation = (battery, noOfBatteries) => {
-    {/* show the price, land dimension required and the sites energy density */ }
+    /* show the price, land dimension required and the sites energy density */
     let noOfTransformers = getTotalTransformers(noOfBatteries);
     let landHeight = battery.batteryFloorHeight * noOfBatteries + (transformer.floor_height * noOfTransformers);
     let landWidth = battery.batteryFloorWidth * noOfBatteries + (transformer.floor_width * noOfTransformers);

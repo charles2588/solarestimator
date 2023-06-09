@@ -1,7 +1,6 @@
-import React, { useRef, useState, FormEvent } from 'react';
 import { FormControl, MenuItem, InputLabel, Select, TextField } from '@mui/material';
 import { styled } from '@mui/system';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { setBatteryType, setNoOfBatteries } from '../reducers/reducer';
 import { battery_types } from '../util/Battery';
 

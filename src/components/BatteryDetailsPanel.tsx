@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { transformer } from '../util/Battery';
-import { Table, TableBody, TableRow, TableCell, Typography, Box, Paper, Tab } from '@mui/material';
+import { Table, TableBody, TableRow, TableCell, Typography, Box, Paper } from '@mui/material';
 
 const BatteryDetailsPanel = () => {
   const battery = useSelector((state: any) => state.battery);
