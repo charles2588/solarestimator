@@ -1,0 +1,13 @@
+.tesla-device {
+    background-color: #000000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    font-size: 7px;
+    font-weight: bold;
+    border:1px blue solid;
+    margin:1px;
+  }
