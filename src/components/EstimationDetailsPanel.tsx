@@ -9,6 +9,7 @@ const EstimationDetailsPanel = () => {
     const noofbatteries = battery.noOfBatteries;
     const estimation = getEstimation(battery, noofbatteries);
 
+    console.log(estimation);
     return (
         <>
             <Box m={2}>
@@ -22,7 +23,7 @@ const EstimationDetailsPanel = () => {
                                 <TableBody>
                                     <TableRow>
                                         <TableCell>{"Land Required for Site:- "}</TableCell>
-                                        <TableCell>{estimation.landHeight + "FT(width) X " + estimation.landWidth + "FT(height)"}</TableCell>
+                                        <TableCell>{estimation.landWidth + "FT(width) X " + estimation.landHeight + "FT(height)"}</TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableCell>{"Site Energy:- "}</TableCell>
