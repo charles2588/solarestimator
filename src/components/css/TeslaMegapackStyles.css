@@ -11,3 +11,11 @@
     border:1px blue solid;
     margin:1px;
   }
+.tesla-device-row{
+  display: flex;
+  flex-direction: row;
+}
+.devices-container{
+  display: flex;
+  flex-direction: column;
+}

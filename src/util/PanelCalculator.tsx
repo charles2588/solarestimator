@@ -10,6 +10,8 @@ interface renderingDetails {
     noOfTransformersPerRow: number,
     noOfTransformersRows: number,
     noOfTransformersOnlastrow: number,
+    noOfTransformers:number,
+    noOfDevices:number,
 }
 const getEstimation = (battery:any, noOfBatteries:number) => {
     /* show the price, land dimension required and the sites energy density */
@@ -39,6 +41,8 @@ const getEstimation = (battery:any, noOfBatteries:number) => {
             noOfTransformersPerRow: 0,
             noOfTransformersRows: 0,
             noOfTransformersOnlastrow: 0,
+            noOfTransformers:0,
+            noOfDevices:0,
         };
         return ({
             price: price,
@@ -51,22 +55,23 @@ const getEstimation = (battery:any, noOfBatteries:number) => {
     }
 
     const noOfDevicesPerRow = Math.floor(100 / battery.batteryFloorWidth);
-    const noOfDevicesRows = Math.ceil(noOfBatteries / noOfDevicesPerRow);
+    const noOfDevicesRows = Math.floor(noOfBatteries / noOfDevicesPerRow);
     //modulo
     const noOfDevicesOnlastrow = noOfBatteries % noOfDevicesPerRow;
     // excessSpaceLeft = 100 - (noOfBatteriesOnlastrow * battery.batteryFloorWidth);
     //render the devices
     landHeight = noOfDevicesRows * battery.batteryFloorHeight;
 
+
     // //try fitting transformers now in excess
     // noOfTransformersToFitInExcess = (excessSpaceLeft / transformer.floor_width).toInt();
     // //render this
     // noOfTransformersLeft = noOfTransformers - noOfTransformersToFitInExcess;
 
-    const noOfTransformersPerRow = Math.floor(100 / transformer.floor_width);
-    const noOfTransformersRows = Math.ceil(noOfTransformers/noOfTransformersPerRow);
-    //modulo
-    const noOfTransformersOnlastrow = noOfTransformers % noOfTransformersPerRow;
+    let noOfTransformersPerRow = Math.floor(100 / transformer.floor_width);
+    let noOfTransformersRows = Math.floor(noOfTransformers/noOfTransformersPerRow);
+    let noOfTransformersOnlastrow = 0;
+    noOfTransformersOnlastrow = noOfTransformers % noOfTransformersPerRow;
     landHeight =  landHeight + (noOfTransformersRows * transformer.floor_height);
 
     //render those
@@ -83,6 +88,8 @@ const getEstimation = (battery:any, noOfBatteries:number) => {
         noOfTransformersPerRow: noOfTransformersPerRow,
         noOfTransformersRows: noOfTransformersRows,
         noOfTransformersOnlastrow: noOfTransformersOnlastrow,
+        noOfTransformers: noOfTransformers,
+        noOfDevices: noOfBatteries,
     };
 
     return ({
