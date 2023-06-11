@@ -60,7 +60,7 @@ const getEstimation = (battery:any, noOfBatteries:number) => {
     const noOfDevicesOnlastrow = noOfBatteries % noOfDevicesPerRow;
     // excessSpaceLeft = 100 - (noOfBatteriesOnlastrow * battery.batteryFloorWidth);
     //render the devices
-    landHeight = noOfDevicesRows * battery.batteryFloorHeight;
+    landHeight = noOfDevicesRows == 0 ? battery.batteryFloorHeight : noOfDevicesRows * battery.batteryFloorHeight;
 
 
     // //try fitting transformers now in excess

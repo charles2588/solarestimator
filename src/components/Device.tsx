@@ -52,37 +52,39 @@ export function Device(props: DeviceProps): JSX.Element {
     // console.log(renderingDetails);
     return (
         <>
-            <div className='devices-container'>
-                {Array.from({ length: renderingDetails.noOfDevicesRows }, (_, index) => (
+            <div className='preview-container'>
+                <div className='devices-container'>
+                    {Array.from({ length: renderingDetails.noOfDevicesRows }, (_, index) => (
+                        <div className='tesla-device-row'>
+                            {Array.from({ length: renderingDetails.noOfDevicesPerRow }, (_, index) => (
+                                <div key={index} className="tesla-device" style={{ height: `${deviceHeight * 7}px`, width: `${deviceWidth * 7}px` }}>
+                                    {deviceName}
+                                </div>
+                            ))}
+                        </div>
+                    ))}
                     <div className='tesla-device-row'>
-                        {Array.from({ length: renderingDetails.noOfDevicesPerRow }, (_, index) => (
+                        {Array.from({ length: renderingDetails.noOfDevicesOnlastrow }, (_, index) => (
                             <div key={index} className="tesla-device" style={{ height: `${deviceHeight * 7}px`, width: `${deviceWidth * 7}px` }}>
                                 {deviceName}
-                            </div>
-                        ))}
+                            </div>))}
                     </div>
-                ))}
-                <div className='tesla-device-row'>
-                    {Array.from({ length: renderingDetails.noOfDevicesOnlastrow }, (_, index) => (
-                        <div key={index} className="tesla-device" style={{ height: `${deviceHeight * 7}px`, width: `${deviceWidth * 7}px` }}>
-                            {deviceName}
-                        </div>))}
                 </div>
-            </div>
-            <div className='devices-container'>
-                {Array.from({ length: renderingDetails.noOfTransformersRows }, (_, index) => (
+                <div className='devices-container'>
+                    {Array.from({ length: renderingDetails.noOfTransformersRows }, (_, index) => (
+                        <div className='tesla-device-row'>
+                            {Array.from({ length: renderingDetails.noOfTransformersPerRow }, (_, index) => (
+                                <StyledDiv key={index} className="tesla-device" style={{ height: `${transformerHeight}px`, width: `${transformerWidth}px` }}>
+                                    {"Transformer"}
+                                </StyledDiv>))}
+                        </div>
+                    ))}
                     <div className='tesla-device-row'>
-                        {Array.from({ length: renderingDetails.noOfTransformersPerRow }, (_, index) => (
+                        {Array.from({ length: renderingDetails.noOfTransformersOnlastrow }, (_, index) => (
                             <StyledDiv key={index} className="tesla-device" style={{ height: `${transformerHeight}px`, width: `${transformerWidth}px` }}>
                                 {"Transformer"}
                             </StyledDiv>))}
                     </div>
-                ))}
-                <div className='tesla-device-row'>
-                    {Array.from({ length: renderingDetails.noOfTransformersOnlastrow }, (_, index) => (
-                        <StyledDiv key={index} className="tesla-device" style={{ height: `${transformerHeight}px`, width: `${transformerWidth}px` }}>
-                            {"Transformer"}
-                        </StyledDiv>))}
                 </div>
             </div>
         </>
